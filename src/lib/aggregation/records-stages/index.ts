@@ -22,3 +22,22 @@ export function matchStageForCreatedDate(startDate: Date, endDate: Date) {
             }
       })
 }
+
+
+/**
+ * @description Creates a `$match` stage for `totalCount` field that specifies a range
+ * to be used only after `totalCount` field is added using @see {addTotalCountField}
+ * 
+ * It is inteded to be used just after @see {addTotalCountField} stage.
+ * 
+ * @param minCount The minimum count number to be used as the value of `$gt` operator
+ * @param maxCount The maximum count to be used as the value of `$lt` operator
+ */
+export function matchStageForCounts(minCount: number, maxCount: number) {
+      return stages.matchStageFrom({
+            totalCount: {
+                  $gt: minCount,
+                  $lt: maxCount
+            }
+      })
+}

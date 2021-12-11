@@ -57,3 +57,19 @@ export function excludeFields() {
             value: false
       })
 }
+
+
+/**
+ * @description Creates `$addFields` stage to add `totalCount` field
+ * as the sum of all elements of the `counts` field
+ * 
+ * It is intended to be used as the second stage in the aggregation pipeline
+ * just after @see {matchStageForCreatedDate}
+ */
+export function addTotalCountField() {
+      return stages.addFieldsFor({
+            totalCount: {
+                  $sum: '$counts'
+            }
+      })
+}

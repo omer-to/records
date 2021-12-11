@@ -41,3 +41,19 @@ export function matchStageForCounts(minCount: number, maxCount: number) {
             }
       })
 }
+
+
+/**
+ * @description Creates `$project` stage to exclude the following fields:
+ * `_id`, `counts`, `value`.
+ * 
+ * It is intended to be used as the **last** stage in the aggregation pipeline,
+ * for removing fields that the http response does not expect to receive.
+ */
+export function excludeFields() {
+      return stages.projectStageFrom({
+            _id: false,
+            counts: false,
+            value: false
+      })
+}

@@ -1,0 +1,24 @@
+# The protocol to be used in request url, defaults to https
+@protocol = https:// 
+
+# The domain of the server, example: example.com
+@domain = todo
+
+# The FQDN of the server, example: https://example.com
+@baseUrl = {{protocol}}{{domain}}
+
+# The path of the resource
+@path = records
+
+### The HTTP request to fetches records for the following criteria:
+### 1. the `createdAt` field of a document is in between `startDate` and `endDate`
+### 2. the sum of the `counts` field of a document is between `minCount` and `maxCount`
+POST {{baseUrl}}/{{path}} HTTP/1.1
+Content-Type: application/json
+
+{
+      "startDate": "2016-01-26",
+      "endDate": "2018-02-02",
+      "minCount": 2700,
+      "maxCount": 3000
+}

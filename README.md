@@ -1,3 +1,26 @@
+
+# Resources
+
+## `POST /records`
+There is a single endpoint for which the server responds.
+
+The request is expected to be a JSON object, fields of which are all required, and briefly explained in the following table:
+
+|          | `startDate`         | `endDate`           | `minCount` | `maxCount` |
+| -------- | ------------------- | ------------------- | ---------- | ---------- |
+| required | true                | true                | true       | true       |
+| type     | string (YYYY-MM-DD) | string (YYYY-MM-DD) | number     | number     |
+
+Here's an example request body:
+```json
+{
+      "startDate": "2016-01-26",
+      "endDate": "2018-02-02",
+      "minCount": 2700,
+      "maxCount": 3000
+}
+```
+
 # Quick Analysis of the MongoDB Database and the `records` Collection
 
 ## Database Version

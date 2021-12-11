@@ -24,7 +24,7 @@ Here's an example request body:
 # Quick Analysis of the MongoDB Database and the `records` Collection
 
 ## Database Version
-The database version is `4.4.10`.
+The database version is `4.4.10`, which is enough to use `$addFields` aggregation pipeline stage.
 ```sh
 db.version()
 ```

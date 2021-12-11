@@ -10,6 +10,7 @@
 # The path of the resource
 @path = records
 
+##### Valid Request #####
 ### The HTTP request to fetches records for the following criteria:
 ### 1. the `createdAt` field of a document is in between `startDate` and `endDate`
 ### 2. the sum of the `counts` field of a document is between `minCount` and `maxCount`
@@ -18,6 +19,62 @@ Content-Type: application/json
 
 {
       "startDate": "2016-01-26",
+      "endDate": "2018-02-02",
+      "minCount": 2700,
+      "maxCount": 3000
+}
+
+##### Invalid Request 1 #####
+### minCount is missing
+POST {{baseUrl}}/{{path}} HTTP/1.1
+Content-Type: application/json
+
+{
+      "startDate": "2016-01-26",
+      "endDate": "2018-02-02",
+      "maxCount": 3000
+}
+
+##### Invalid Request 2 #####
+### maxCount is missing
+POST {{baseUrl}}/{{path}} HTTP/1.1
+Content-Type: application/json
+
+{
+      "startDate": "2016-01-26",
+      "endDate": "2018-02-02",
+      "maxCount": 3000
+}
+
+##### Invalid Request 3 #####
+### startDate is missing
+POST {{baseUrl}}/{{path}} HTTP/1.1
+Content-Type: application/json
+
+{
+      "endDate": "2018-02-02",
+      "minCount": 2700,
+      "maxCount": 3000
+}
+
+##### Invalid Request 4 #####
+### endDate is missing
+POST {{baseUrl}}/{{path}} HTTP/1.1
+Content-Type: application/json
+
+{
+      "startDate": "2016-01-26",
+      "minCount": 2700,
+      "maxCount": 3000
+}
+
+##### Invalid Request 5 #####
+### startDate is not properly formatted
+POST {{baseUrl}}/{{path}} HTTP/1.1
+Content-Type: application/json
+
+{
+      "startDate": "2016.01.26",
       "endDate": "2018-02-02",
       "minCount": 2700,
       "maxCount": 3000

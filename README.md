@@ -167,3 +167,10 @@ The last stage in the aggregation pipeline to remove the fields that are not req
       }
 }
 ```
+
+# Usage
+
+## Visual Studio Code Rest Client
+For [VS Code Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) users, you can use [here](records.http) to send out requests.
+
+There are a couple of requests pre-defined in the file. The only first one is suppossed to be working, and the rest is non-exclusive list of invalid requests.

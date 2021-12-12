@@ -21,6 +21,42 @@ Here's an example request body:
 }
 ```
 
+# HTTP Response Schema
+There are two response schema:
+1. Successful:
+   
+   A successful response is expected to be received in the case that the request body contains the required fields.
+   The HTTP status code of the successful response is `200`, and the response body is as follows:
+   ```json
+   {
+         "code": 0,
+         "msg": "Success",
+         "records":
+         [
+               {
+                     "key": "ibfRLaFT",
+                     "totalCount": 3000,
+                     "createdAt": "2016-12-25T16:43:27.909Z"
+               } 
+         ]
+   }
+   ```
+2. Unsuccessful: 
+   
+   An unsuccessful response is expected for request body validations.
+   The HTTP status code of the response is `400`, and the response body is as follows (for example in the case of `minCount` field is missing):
+   ```json
+   {
+         "code": -1,
+         "msg":
+         [
+               {
+                     "minCount": "minCount must be a number"
+               }
+         ]
+   }
+   ```
+
 # Quick Analysis of the MongoDB Database and the `records` Collection
 
 ## Database Version

@@ -210,3 +210,8 @@ The last stage in the aggregation pipeline to remove the fields that are not req
 For [VS Code Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) users, you can use [here](records.http) to send out requests.
 
 There are a couple of requests pre-defined in the file. The only first one is suppossed to be working, and the rest is non-exclusive list of invalid requests.
+
+
+# NOTE
+
+The MongoDB connection url is in the repo only because the DB user over which the connection is established does not have any write privilege, and/or access to any other database/collections.

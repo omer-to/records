@@ -5,8 +5,8 @@
       "license": "MIT",
       "scripts": {
             "dev": "tsnd --respawn --transpile-only src/index.ts",
-            "build": "yarn install --production && tsc",
-            "start": "pm2 start app.js -i max"
+            "build": "yarn && tsc && rm -rf node_modules && yarn install --production",
+            "start": "pm2 start build/index.js -i max"
       },
       "devDependencies": {
             "@types/express": "^4.17.13",

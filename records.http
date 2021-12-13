@@ -1,8 +1,8 @@
 # The protocol to be used in request url, defaults to https
-@protocol = https:// 
+@protocol = http://
 
 # The domain of the server, example: example.com
-@domain = todo
+@domain = 18.194.113.79
 
 # The FQDN of the server, example: https://example.com
 @baseUrl = {{protocol}}{{domain}}
